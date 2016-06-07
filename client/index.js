@@ -1,8 +1,9 @@
-'use strict';
+import ReactDOM from 'react-dom';
+import { Router, browserHistory } from 'react-router';
+import { Routes } from './components/routes';
 
-import React from 'react';
-import App from './components/app';
-
-
-
-
+ReactDOM.render(
+    <Router history={browserHistory}>
+        <Routes />
+    </Router>,
+document);

@@ -1,48 +1,27 @@
 import React from 'react';
-import LatestArticleList from './latestarticlelist';
+import { Link } from 'react-router'
 
-export default class Home extends React.Component {
+export default class HOME extends React.Component {
 
     static propTypes = {
-        latest: React.PropTypes.object
     };
 
     static defaultProps = {
-        latest: {}
     };
 
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
 
-        let latest;
-
-        latest = this.props.latest && this.props.latest.pager && this.props.latest.pager.items_per_page >= 1 ? this.props.latest.items : [];
-
-        this.state= ({latest});
+        console.log(context);
     }
 
-    getLatest(){
-        if(this.state.latest.length > 0){
-            return (
-                <LatestArticleList
-                    latestArticles={this.state.latest}
-                />
-            );
-        }
-        return '';
-    }
 
     render() {
 
-        let latest = this.getLatest();
-
         return (
-            <div className="appbody">
-                <article>
-
-                    {latest}
-
-                </article>
+            <div>
+                <h1>HOME</h1>
+                <Link to="/article" >article</Link>
             </div>
         );
     }
