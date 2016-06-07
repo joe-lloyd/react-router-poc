@@ -1,0 +1,20 @@
+{
+  "name": "hmc",
+  "homepage": "",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "es5-shim": "^4.5.8",
+    "normalize-scss": "^3.0.3",
+    "bourbon": "^4.2.7"
+  }
+}

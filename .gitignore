@@ -1,0 +1,5 @@
+node_modules/
+public/
+server/generated/
+bower_components/
+.idea

@@ -1,0 +1,23 @@
+{
+  "plugins": ["react"],
+  "parser": "babel-eslint",
+  "extends":  ["eslint:recommended", "plugin:react/recommended"],
+  "ecmaVersion": 7,
+  "rules": {
+    //interesting links
+    // -> http://eslint.org/docs/rules/
+    // -> https://bl.ocks.org/nkbt/9efd4facb391edbf8048
+    "react/no-did-mount-set-state": 0,
+    "react/no-did-update-set-state": 0
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "blockBindings": true
+    }
+  },
+  "globals": {
+    "window": true
+  }
+}
