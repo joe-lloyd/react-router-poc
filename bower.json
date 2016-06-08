@@ -1,16 +1,13 @@
 {
-  "name": "hmc",
+  "name": "boilerplatereactjs",
   "homepage": "",
   "description": "",
   "main": "",
-  "license": "MIT",
   "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "es5-shim": "^4.5.8",

@@ -1,10 +1,10 @@
 var eslint = require('gulp-eslint');
 
 module.exports = {
-    eslint: function (gulp, CLIENT_COMP_DIR) {
+    eslint: function (gulp, COMP_DIR) {
 
         return gulp
-            .src(CLIENT_COMP_DIR + '/**/*.js')
+            .src(COMP_DIR + '/**/*.js')
             .pipe(eslint({
                 configFile: __dirname + "/../eslint.json"
             }))
@@ -13,10 +13,10 @@ module.exports = {
 
     },
 
-    eslintdev: function (gulp, CLIENT_COMP_DIR) {
+    eslintdev: function (gulp, COMP_DIR) {
 
         return gulp
-            .src(CLIENT_COMP_DIR + '/**/*.js')
+            .src(COMP_DIR + '/**/*.js')
             .pipe(eslint({
                 configFile: __dirname + "/../eslint.json"
             }))

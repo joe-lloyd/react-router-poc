@@ -3,7 +3,8 @@ var rename = require("gulp-rename");
 var sass = require('gulp-sass');
 var sassGlob = require('gulp-sass-glob');
 var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
+//var streamify = require('gulp-streamify');
+//var uglify = require('gulp-uglify');
 var browserify = require("browserify");
 var gutil = require("gulp-util");
 var source = require("vinyl-source-stream");
@@ -11,22 +12,11 @@ var babelify = require("babelify");
 
 module.exports = {
 
-	server: function(gulp, CLIENT_COMP_DIR, SERVER_GEN_DIR) {
-
-		return gulp
-			.src(CLIENT_COMP_DIR + '/**/*.js')
-			.pipe(babel({
-				presets: ['react', 'es2015', 'stage-0']
-			}))
-			.pipe(gulp.dest(SERVER_GEN_DIR));
-
-	},
-
-	client: function(gulp, CLIENT_DIR, PUBLIC_DIR, NPM_DIR) {
+	dist: function(gulp, CLIENT_DIR, DIST_DIR, NODE_DIR) {
 
 		return browserify({
 				debug: true,
-		  		entries: [`${NPM_DIR}/js-polyfills/es5.js`, `${NPM_DIR}/js-polyfills/es6.js`, CLIENT_DIR + '/index.js']
+		  		entries: [`${NODE_DIR}/js-polyfills/es5.js`, `${NODE_DIR}/js-polyfills/es6.js`, CLIENT_DIR + '/index.js']
 			})
 			.transform(babelify.configure({
 				sourceMapRelative: CLIENT_DIR,
@@ -38,14 +28,15 @@ module.exports = {
 			})
 			.pipe(source('bundle.js'))
 			.pipe(rename('bundle.min.js'))
-			.pipe(gulp.dest(PUBLIC_DIR));
+			//.pipe(streamify(uglify()))
+			.pipe(gulp.dest(DIST_DIR));
 
 	},
 
-	sass: function(gulp, CLIENT_COMP_DIR, PUBLIC_DIR) {
+	sass: function(gulp, COMP_DIR, DIST_DIR) {
 
 		return gulp
-			.src(CLIENT_COMP_DIR + '/app/App.scss')
+			.src(COMP_DIR + '/App.scss')
 			.pipe(sassGlob())
 			.pipe(sass({
 				outputStyle: 'compressed',
@@ -55,7 +46,7 @@ module.exports = {
 	        		'./bower_components/bourbon/app/assets/stylesheets/'
 	      		]}).on('error', sass.logError))
 			.pipe(concat('bundle.min.css'))
-			.pipe(gulp.dest(PUBLIC_DIR));
+			.pipe(gulp.dest(DIST_DIR));
 
 	}
 }

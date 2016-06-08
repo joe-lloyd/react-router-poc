@@ -1,12 +1,32 @@
-# node-express-react-gulp
-Proof of Concept for react router
+# Boilerplate for a React project
 
-## To install:
+Project is based on:
 
-> npm install -g gulp
+* Node.js (https://nodejs.org/)
+* Express (http://expressjs.com/)
+* npm (https://www.npmjs.com/)
+* Bower (http://bower.io/)
+* gulp (http://gulpjs.com/)
+* React (https://facebook.github.io/react/)
+* React Router (https://github.com/reactjs/react-router)
 
-> npm install
 
-> gulp build
+## Description
 
-> gulp start
+This project is intended to be a boilerplate for a React project involving different kind of technologies, with the goal to create an isomorphic and universal application.
+
+
+## Installation:
+
+    $ npm install -g gulp
+
+    $ npm install
+
+    $ bower install
+
+    $ gulp build
+
+    $ gulp start
+
+
+The server will be reachable at http://localhost:3000/
